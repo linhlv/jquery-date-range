@@ -124,10 +124,10 @@ $.fn.rangeCalendar = function(options) {
 			var monthId =  fullYear+monthNumber;
 			
 			var dateCell = obj.calendarObj.find('.cell[date-id="'+dateId+'"]').eq(0);
-			dateCell.trigger("click");
+			dateCell.trigger("touchend");
 			
 			var monthCell = obj.monthsObj.find('.cell[month-id="'+monthId+'"]').eq(0);
-			monthCell.trigger("click");
+			monthCell.trigger("touchend");
 			
 		},
 		
@@ -219,7 +219,7 @@ $.fn.rangeCalendar = function(options) {
 		    
 		    var rightBar  = currentCalItem.index()+rangeWidth-1;
 		    if(rightBar > lastCalItem.index()){
-		        obj.calendarObj.find(' .cell').eq(currentCalItem.index()-rangeWidth+delta+1).trigger("click");
+		        obj.calendarObj.find(' .cell').eq(currentCalItem.index()-rangeWidth+delta+1).trigger("touchend");
 		        return;
 		    }
 		        
@@ -290,7 +290,7 @@ $.fn.rangeCalendar = function(options) {
 		        start: function (e, ui) {
 		          	
 		          	obj.isDragging = true;
-		          	obj.monthsObj.find('.cell').unbind("click");
+		          	obj.monthsObj.find('.cell').unbind("touchend");
 		      	},
 		      	drag: function (e, ui) {
 		      		 
@@ -306,7 +306,7 @@ $.fn.rangeCalendar = function(options) {
 		      	  		obj.isDragging = false;
 		      	  		delete obj.lastTarget;
 		      	  		obj._placeElement(obj.monthsObj);
-		      	  		obj.monthsObj.find('.cell').bind("click",obj.didSelectMonth);	
+		      	  		obj.monthsObj.find('.cell').bind("touchend",obj.didSelectMonth);	
 		      	  	},10);
 		      	}
 		    });
@@ -331,7 +331,7 @@ $.fn.rangeCalendar = function(options) {
 				  		obj.calendarObj.find(".cell").eq(obj.start-1).addClass("start");
 				  		obj.calendarObj.find(".cell").eq(obj.start-1).addClass("selected");			
 				  		obj.calendarObj.find('.cell.start').nextAll().slice(0, obj._rangeWidth-1).addClass('selected');
-				  		obj.calendarObj.find('.cell').bind("click",obj.didChangeRange);
+				  		obj.calendarObj.find('.cell').bind("touchend",obj.didChangeRange);
 				  		obj.calendarObj.find('.cell.selected').last().addClass("last");
 			
 				  		obj._placeElement(obj.calendarObj);	
@@ -341,7 +341,7 @@ $.fn.rangeCalendar = function(options) {
 			  			xpos = ui.position.left;
 			  		  	$(window).unbind("resize"); //Prevents window.resize event triggering
 			  		  	obj.isDragging = true;
-			  		  	obj.calendarObj.find('.cell').unbind("click");
+			  		  	obj.calendarObj.find('.cell').unbind("touchend");
 			  		},
 			  		drag: function (e, ui) {
 			  			
@@ -404,7 +404,7 @@ $.fn.rangeCalendar = function(options) {
 			  			    obj.isDragging = false;
 			  			    delete obj.lastTarget;
 			  			    
-			  			    obj.calendarObj.find('.cell').bind("click",obj.didChangeRange);	
+			  			    obj.calendarObj.find('.cell').bind("touchend",obj.didChangeRange);	
 			  			    $(window).bind("resize",obj._resize);
 			  			    obj._placeElement(obj.monthsObj);
 			  			},100);
@@ -618,7 +618,7 @@ $.fn.rangeCalendar = function(options) {
 		
 			if(obj.trigger){
 			
-				$(obj.trigger).unbind("click");
+				$(obj.trigger).unbind("touchend");
 				$(obj.trigger).click(obj.toggleCalendar);
 			}
 				
@@ -626,7 +626,7 @@ $.fn.rangeCalendar = function(options) {
 			obj.timeoutTime = 100;
 						
 			obj.calendarObj.find(".range-bar").on( "resize", obj.didResizeBar);
-		    obj.monthsObj.find('.cell').bind("click",obj.didSelectMonth);
+		    obj.monthsObj.find('.cell').bind("touchend",obj.didSelectMonth);
 		    
 		    $(window).bind('resize',obj._timedResize);
 			

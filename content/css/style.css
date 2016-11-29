@@ -117,4 +117,7 @@ p {font-size: 22px;}
 
 
 
-
+.cell{
+    -ms-touch-action: none;
+    touch-action: none;
+}

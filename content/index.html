@@ -8,19 +8,25 @@
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/jquery.ui.touch-punch.0.2.3.js"></script>
-<script type="text/javascript" src="js/moment+langs.min.js"></script>
+<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+
+<script type="text/javascript" src="js/moment-langs.min.js"></script>
 <script type="text/javascript" src="js/jquery.rangecalendar.js"></script>
-
-
-
 <link rel="stylesheet" id="bootstrap-css" href="css/bootstrap.css" type="text/css" media="all">
 <link rel="stylesheet" id="rangecalendar-style-css" href="css/rangecalendar.css" type="text/css" media="all">
 <link rel="stylesheet" id="rangecalendar-style-css" href="css/style.css" type="text/css" media="all">
 <link rel="stylesheet" id="jquery-ui-style-css" href="css/jquery-ui-1.10.3.custom.min.css" type="text/css" media="all">
 
-
 <script>
+
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			document.write('is mobile');
+	}else{
+		document.write('is not mobile');
+	}
+
+
+
 	$(document).ready(function(){
 		
 		var defaultCalendar = $("#cal1").rangeCalendar();
