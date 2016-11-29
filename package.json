@@ -1,0 +1,23 @@
+{
+  "name": "r",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linhlv/jquery-date-range.git"
+  },
+  "author": "Linh Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linhlv/jquery-date-range/issues"
+  },
+  "homepage": "https://github.com/linhlv/jquery-date-range#readme"
+}
